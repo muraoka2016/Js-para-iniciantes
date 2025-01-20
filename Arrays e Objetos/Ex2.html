@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ex 2</title>
+</head>
+<body>
+    <!--Crie um array chamado frutas e adicione 3 frutas, depois adicione uma quarta usando push
+    e a remova usando shift.-->
+    <!--Use o método join para criar uma string que contenha as frutas separadas por vírgula,
+    depois use slice para criar um novo array que contenha apenas a segunda e a terceira.-->
+</body>
+</html>
+<script>
+    let frutas = ['Abacaxi', 'Pera', 'Laranja']
+    let algumasFrutas = frutas.slice(0,2)
+    frutas.push('Banana')
+    console.log(frutas)
+    frutas.shift()
+    console.log(frutas)
+    frutas.join(',')
+    console.log(frutas)
+    console.log(algumasFrutas)
+</script>
