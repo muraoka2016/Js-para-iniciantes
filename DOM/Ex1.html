@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ex 1</title>
+</head>
+<body>
+    <h1 id="main-heading">Título Principal</h1>
+    <div id="main">
+        <p>Este é um parágrafo de exemplo</p>
+    </div>
+    <a href="https//www.example.com">Visite o nosso site</a>
+
+    <button id = 'myButton'>Clique em mim</button>
+    <p id="myParagraph">Passe o mouse sobre esse parágrafo</p>
+
+    <input id="myInput" type="text" placeholder="Digite algo aqui...">
+
+    <form id = 'myForm' action="">
+        <input type="text" placeholder="Digite algo aqui...">
+        <input type="submit" value="Enviar">
+    </form>
+
+    <div id="meuElemento">Olá, mundo!</div>
+</body>
+</html>
+<style>
+    .vermelho{
+        color: red;
+    }
+</style>
+<script>
+    //Usando DOM para alterar o HTML de maneira dinâmica
+    let heading = document.getElementById('main-heading');
+    heading.textContent = 'Novo título';
+
+    let div = document.getElementById('main');
+    div.innerHTML = '<p>Este é um novo parágrafo</p>';
+    div.style.color = 'blue'
+
+    let link = document.querySelector('a');
+    link.setAttribute('href', 'https//www.example.com')
+
+    //Usando DOM para adicionar funcionalidades através do addEventListener
+    let button = document.getElementById('myButton')
+    button.addEventListener('click', ()=>{
+        alert('O botão foi clicado!')
+    })
+
+    let paragraph = document.getElementById('myParagraph')
+    paragraph.addEventListener('mouseover', ()=>{
+        console.log('O mouse está sobre o parágrafo')
+    })
+
+    let input = document.getElementById('myInput')
+    input.addEventListener('change', ()=>{
+        alert('O valor foi alterado para' + this.value)
+    })
+
+    let form = document.getElementById('myForm')
+    form = addEventListener('submit', (event)=>{
+        event.preventDefault();
+        console.log('Formulário submetido')
+    })
+
+    window.addEventListener('keydown', function(event){
+        alert('Você pressionou a tecla: ' + event.key)
+    })
+
+    //Usando DOM para alterar estilos
+    let meuElemento = document.getElementById('meuElemento')
+    meuElemento.style.color = 'red'
+    meuElemento.style.fontSize = '20px';
+    meuElemento.style.backgroundColor = '#f0f0f0'
+
+    meuElemento.classList.add('vermelho')
+    let estiloComputado = window.getComputedStyle(meuElemento)
+</script>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ex 2</title>
+</head>
+<body>
+    <!--Primeiro crie uma lista de itens e selecione e defina suas variáveis através do DOM-->
+    <!--Segundo altere o innerHTML e textContent onde for possível-->
+    <!--Terceiro crie um link(a) e uma imagem(img) e altere os destinos através do setAttribute-->
+    <!--Quarto mude os estilos dos elementos-->
+    <!--Quinto crie um elemento botão e aplique alguma funcionalidade usando o addEventListener-->
+    <h1 id="h1">Olá mundo</h1>
+    <p class="paragrafo">Primeiro parágrafo</p>
+    <h2>Segundo tópico</h2>
+    <input type="text">
+    <button type="submit">Enviar</button>
+    <a href="https://www.google.com.br">Clique aqui!</a>
+    <img src="https://a.cdn-hotels.com/gdcs/production50/d264/91568784-934e-4609-9ad4-7c9fedcfc61c.jpg" alt="Praia">
+</body>
+</html>
+<script>
+    let h1 = document.getElementById('h1')
+    let paragrafo = document.getElementsByClassName('paragrafo')
+    let h2 = document.getElementsByTagName('h2')
+    let button = document.querySelector('button')
+
+    h1.textContent = 'Texto alterado'
+    paragrafo[0].innerHTML = '<p>Esse é um novo parágrafo</p>'
+
+    let img = document.getElementsByTagName('img')[0];
+    let link = document.getElementsByTagName('a')[0];
+    img.setAttribute('src','https://tse3.mm.bing.net/th?id=OIP.AL7fgBlttgXSocp7dd55awHaFA&pid=Api&P=0&h=180')
+    link.setAttribute('href', 'http://www.yahoo.com')
+
+    h1.style.fontSize = '70px'
+    h1.style.textAlign = 'center'
+    h1.style.color = 'green'
+    paragrafo[0].style.color = 'blue';
+    paragrafo[0].style.fontSize = '40px';
+
+    button.addEventListener('click', ()=>{
+        h1.style.color = 'yellow'
+        paragrafo[0].style.color = 'red'
+    })
+</script>
