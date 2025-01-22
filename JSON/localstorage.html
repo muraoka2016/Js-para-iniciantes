@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Local Storage</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    //Exemplo de armazenamento de dado e recuperação
+    localStorage.setItem('nome','João')
+    let nome = localStorage.getItem('nome')
+    console.log(nome)
+
+    //Para armazenar dados, deve converter para string com stringfy e para recuperar,
+    //deve voltar com o parse
+    let pessoa = {
+        nome: 'João',
+        idade: 30,
+        cidade: 'Rio de Janeiro'
+    }
+    localStorage.setItem('pessoa',JSON.stringify(pessoa))
+
+    let pessoaRecuperada = JSON.parse(localStorage.getItem('pessoa'))
+    console.log(pessoaRecuperada)
+</script>

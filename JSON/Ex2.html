@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ex 2</title>
+</head>
+<body>
+    <!--Crie um formulário simples com um espaço para completar e um botão, ao clicar em submit
+    armazene a informação-->
+    <!--Crie outro botão para recuperar a informação salva, mostrando visualmente o dado
+    na tela-->
+    <!--Crie outro botão para remover a informação armazenada-->
+    <!--Crie um objeto com algumas propriedades, converta em uma string JSON e armazene localmente
+    recupere o objeto e converta novamente em JS-->
+    <form id='formulario' action="">
+        <label for="nome">Nome: </label><br>
+        <input type="text" id="nome" name="nome"><br>
+        <button type="submit">Enviar</button><br>
+        <button id='buttonRecover' type="button">Recuperar dados</button><br>
+        <button id="buttonClear" type="button">Exclusão de dados</button><br>
+    </form>
+</body>
+</html>
+<script>
+    
+
+    document.getElementById('formulario').addEventListener('submit', function(event){
+        event.preventDefault();
+        let nome = document.getElementById('nome').value
+        if(nome ===''){
+            alert('Entrada inválida')
+            return false
+        } else{
+            alert('Enviado com sucesso!')
+            localStorage.setItem('nome', nome)
+        }
+    })
+
+    document.getElementById('buttonRecover').addEventListener('click', function(event){
+        event.preventDefault();
+        let pessoaRecuperada= localStorage.getItem('nome')
+        alert('Seu nome é: ' + pessoaRecuperada)
+    })
+
+    document.getElementById('buttonClear').addEventListener('click', function(event){
+        event.preventDefault()
+
+        let nomeRemovido = localStorage.removeItem('nome')
+        alert('Removido com sucesso')
+    })
+
+    //Crie um objeto com algumas propriedades, converta em uma string JSON e armazene localmente
+    //recupere o objeto e converta novamente em JS
+
+    let pessoa = {
+        nome: 'Matheus',
+        idade: 25,
+        cidade: 'Londrina',
+        estado: 'Paraná'
+    }
+    let json = JSON.stringify(pessoa)
+    console.log(json)
+    localStorage.setItem('json', json)
+    localStorage.getItem('json')
+    let pessoaRecuperada = JSON.parse(localStorage.getItem('json'))
+    console.log(pessoaRecuperada)
+</script>

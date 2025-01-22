@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSON</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    //Exemplo como transformar JSON em JS
+    let json = `{
+        "nome": "João",
+        "idade": "30",
+        "cidade": "Rio de Janeiro"
+    }`;
+    let obj = JSON.parse(json)
+    console.log(obj.nome)
+
+    //Exemplo como transformar JS em JSON
+    let obj1 ={
+        nome: 'Mario',
+        idade: 25,
+        cidade: 'São Paulo'
+    }
+    let json1 = JSON.stringify(obj1)
+    console.log(json1)
+</script>
