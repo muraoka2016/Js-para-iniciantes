@@ -14,5 +14,42 @@
 </html>
 <script>
     let campoNome = document.getElementById('nome')
+    //Lê o valor atual do campo
     let nomeAtual = campoNome.value
+    //Define um novo valor para o campo
+    campoNome.value = 'Novo nome'
+
+    let campoCheckbox = document.getElementById('meuCheckbox') 
+    //Verifica se a caixa de seleção está marcada
+    let isChecked = campoCheckbox.checked 
+    //Marca a caixa de seleção
+    campoCheckbox.checked = true
+    //Desmarca a caixa de seleção
+    campoCheckbox.checked = false
+
+    //Em caso de listas suspensas
+    let campoSelect = document.getElementById('meuSelect')
+    //Obtém o valor da opção selecionada
+    let valorSelecionado = campoSelect.value
+    //Obtém o índice da opção selecionada
+    let indiceSelecionado = campoSelect.selectedIndex;
+    //Define a opção selecionada por índice
+    campoSelect.selectedIndex = 2;
+
+    //Validando e processando formulários
+    //Seleciona elemento por id
+    let campoNome = document.getElementById('nome')
+
+    //Quando submetido, valida por meio de função
+    document.getElementById('meuFormulario').addEventListener('submit', function(event){
+        //Previne o comportamento padrão do submit
+        event.preventDefault()
+
+        if(campoNome.value===''){
+            alert('Por favor, insira o nome')
+            return false;
+        } else{
+            alert('Formulário enviado com sucesso')
+        }
+    })
 </script>

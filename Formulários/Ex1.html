@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!--Crie um formulário com o campo nome e faça e verificação de que o campo não está vazio-->
+
+    <form id='meuFormulario' action=>
+        <label for="nome">Nome: </label><br>
+        <input type="text" id="nome" name="nome"><br>
+        <label for="email">E-mail: </label><br>
+        <input type="email" id="email" name="email"><br>
+        <label for="senha"></label>Senha: <br>
+        <input type="password" id="senha" name="senha"><br>
+        <label for="aceito">Eu aceito os termos:</label><br>
+        <input type="checkbox" id="aceito" name="aceito" required><br>
+        <button type="submit">Enviar</button><br>
+    </form>
+
+    <form id = 'feedback' action="">
+        <label for="nome-feedback">Nome: </label><br>
+        <input type="text" id="nome-feedback" name="nome-feedback"><br>
+        <label for="email">E-mail: </label><br>
+        <input type="email" id="email-feedback" name="email-feedback"><br>
+        <button type="submit">Enviar</button><br>
+    </form>
+</body>
+</html>
+<script>
+    
+
+    document.getElementById('meuFormulario').addEventListener('submit',function(event){
+        event.preventDefault()
+        let campoNome = document.getElementById('nome')
+        let nomeAtual = campoNome.value
+
+        let campoEmail = document.getElementById('email')
+        let emailAtual = campoEmail.value
+
+        let campoSenha = document.getElementById('senha')
+        let senhaAtual = campoSenha.value 
+        let regexSenhaValida = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$ %^&*-]).{8,}$/;
+
+        let checkbox = document.getElementById('aceito')
+        
+        if (nomeAtual === '') {
+            alert('Entrada inválida: o campo Nome está vazio.');
+            return false;
+        }
+    
+        // Validação do email
+        if (!emailAtual.includes('@') || !emailAtual.includes('.')) {
+            alert('Entrada inválida: o email deve conter "@" e ".".');
+            return false;
+        }
+
+        if(!regexSenhaValida.test(senhaAtual)){
+            alert('Entrada inválida')
+            return false
+        }
+
+        if(!checkbox.checked){
+            alert('É necessário aceitar os termos')
+            return false
+        }
+    
+        // Se ambos forem válidos
+        alert('Entrada válida, enviado com sucesso');
+    })
+
+    document.getElementById('feedback').addEventListener('submit', function(event){
+        event.preventDefault()
+
+        let nameFeedback = document.getElementById('nome-feedback').value
+        let emailFeedback = document.getElementById('email-feedback').value
+        if(nameFeedback ===''|| !emailFeedback.includes('@') || !emailFeedback.includes('.')){
+            alert('Entrada inválida')
+            return false
+        } else{
+            alert('Entrava válida, formulário enviado')
+        }
+    })
+</script>
