@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ex 1</title>
+</head>
+<body>
+    <!--Crie uma função que retorne promise que se resolve após 2 segundos com a string
+    Tempo esgotado. Usar o método setTimeout.-->
+
+    <!--Use Fetch API para fazer uma requisição GET para 'https
+    ://jsonplaceholder.typicode.com/users' e imprima a resposta
+    no console-->
+
+    <!--Escreva uma função assíncrona que faz uma requisição
+    GET para 'https
+    ://jsonplaceholder.typicode.com/posts', envie o seguinte objeto
+    {title: 'Meu post' body: 'Este é  o corpo do meu post', user id 1.
+    Imprima a resposta.}-->
+</body>
+</html>
+<script>
+    function esperarDoisSegundos() {
+        return new Promise((resolve) => {
+            setTimeout(() => {
+                resolve('Tempo esgotado');
+            }, 2000);
+        });
+    }
+
+    
+</script>
