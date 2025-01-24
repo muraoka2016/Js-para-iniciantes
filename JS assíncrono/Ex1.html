@@ -29,5 +29,61 @@
         });
     }
 
-    
+    fetch('https://jsonplaceholder.typicode.com/users')
+    .then(resposta1 => resposta1.json())
+    .then(dados => console.log(dados))
+    .catch(erro => console.log('Erro', erro))
+
+    async function post() {
+        const novoPost = {
+            title: 'Meu Post',
+            body: 'Este é o body do meu post',
+            userId: 1
+        };
+
+        try {
+            const resposta = await fetch('https://jsonplaceholder.typicode.com/posts', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(novoPost)
+            });
+            const dados = await resposta.json();
+            console.log(dados);
+
+            const respostaGet = await fetch('https://jsonplaceholder.typicode.com/posts');
+                const dadosGet = await respostaGet.json();
+                console.log('Resposta do GET:', dadosGet);
+        } catch (erro) {
+            console.log('Erro', erro);
+        }
+    }
+
+    // Chama a função assíncrona
+    post();
+
+    async function get(){
+        const resposta = await fetch('https://jsonplaceholder.typicode.com/posts')
+        const data = await resposta.json()
+        return data[0].title;
+    }
+
+    function promiseManipulada(){
+        return new Promise((resolve, reject)=>{
+            setTimeout(()=>{
+                resolve (10);
+            }, 3000)
+        })
+    }
+    promiseManipulada()
+    .then(resposta =>{
+        console.log('Resolve', resposta)
+    })
+    .catch(erro =>{
+        console.log('Erro', erro)
+    })
+    .finally(()=>{
+        console.log('Promise manipulada')
+    })
 </script>
