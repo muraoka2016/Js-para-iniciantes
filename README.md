@@ -188,7 +188,7 @@ console.log(objeto.nome); // "João"
 
 ---
 
-# Seção 8: Callback, Promise, Async/Await e Fetch API
+# Seção 7: Callback, Promise, Async/Await e Fetch API
 
 Nesta seção, exploraremos conceitos fundamentais para a programação assíncrona em JavaScript, como **Callback**, **Promise**, **Async/Await** e a **Fetch API**. Esses recursos são amplamente utilizados para lidar com operações assíncronas, como chamadas a APIs ou tarefas que demoram a ser concluídas.
 
